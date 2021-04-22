@@ -1,0 +1,49 @@
+﻿{
+  "LevelData": [{
+    "Width": 5,
+    "Height": 5,
+    "Tiles": [
+      "Waypoint",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Waypoint",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Normal",
+      "Waypoint",
+      "Normal"
+    ]
+  },
+    {
+      "Width": 3,
+      "Height": 3,
+      "Tiles": [
+        "Waypoint",
+        "Normal",
+        "Normal",
+        "Normal",
+        "Normal",
+        "Normal",
+        "Normal",
+        "Normal",
+        "Waypoint"
+      ]
+    }
+  ]
+}

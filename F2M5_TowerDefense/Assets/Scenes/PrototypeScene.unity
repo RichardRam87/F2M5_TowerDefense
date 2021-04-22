@@ -350,6 +350,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2165613460541363557, guid: a859bb51a8c706346849801985cbd66e, type: 3}
+      propertyPath: TilePrefab
+      value: 
+      objectReference: {fileID: 8922731291968457582, guid: b7e2a4a8e93b54945ae541ff7250cfbf, type: 3}
+    - target: {fileID: 2165613460541363557, guid: a859bb51a8c706346849801985cbd66e, type: 3}
+      propertyPath: _TestLeveJson
+      value: 
+      objectReference: {fileID: 4900000, guid: 1c8f6105ecd56e1419f8f6fca12f17a5, type: 3}
+    - target: {fileID: 2165613460541363557, guid: a859bb51a8c706346849801985cbd66e, type: 3}
+      propertyPath: _TestLevelJson
+      value: 
+      objectReference: {fileID: 4900000, guid: 1c8f6105ecd56e1419f8f6fca12f17a5, type: 3}
+    - target: {fileID: 2165613460541363557, guid: a859bb51a8c706346849801985cbd66e, type: 3}
+      propertyPath: _TilePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165613460541363557, guid: a859bb51a8c706346849801985cbd66e, type: 3}
+      propertyPath: _TilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: -7674476044525111613, guid: b7e2a4a8e93b54945ae541ff7250cfbf, type: 3}
+    - target: {fileID: 2165613460541363557, guid: a859bb51a8c706346849801985cbd66e, type: 3}
+      propertyPath: _TilePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3093221946994929255, guid: 167c66823faa4c446af0ddde7b434c3b, type: 3}
     - target: {fileID: 5522684986747747176, guid: a859bb51a8c706346849801985cbd66e, type: 3}
       propertyPath: m_Name
       value: LevelSpawner
