@@ -25,7 +25,6 @@ public class LevelSpawner : MonoBehaviour
     {
         GameData data = JsonUtility.FromJson<GameData>(_TestLevelJson.ToString());
         SpawnLevel(data.LevelData[0]);
-        CreatePaths();
     }
 
     private void CreatePaths()
@@ -58,7 +57,7 @@ public class LevelSpawner : MonoBehaviour
             case "Normal":
                 index = 0;
                 break;
-            case "Waypoint":
+            case "Path":
                 index = 1;
                 break;
             case "Spawnpoint":
