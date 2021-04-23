@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf279bd2ade4bc49853ef68359eee43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _TestLevelJson: {fileID: 0}
+  _TilePrefabs:
+  - {fileID: -7674476044525111613, guid: b7e2a4a8e93b54945ae541ff7250cfbf, type: 3}
+  - {fileID: 3093221946994929255, guid: 167c66823faa4c446af0ddde7b434c3b, type: 3}
+  - {fileID: 8949795958997433281, guid: a5ec2112ce3c0f84fb4fd18870adbb72, type: 3}
