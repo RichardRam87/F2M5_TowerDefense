@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private bool buildable;
+    [SerializeField] private bool _buildable;
+    public bool Buildable => _buildable;
 }
