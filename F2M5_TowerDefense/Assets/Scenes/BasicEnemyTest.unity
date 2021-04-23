@@ -843,13 +843,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129884604}
-  m_LocalRotation: {x: -0.650549, y: -0.0018254088, z: 0.0015621561, w: -0.7594605}
+  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
   m_LocalPosition: {x: 1.6692659, y: 7.930941, z: 1.3453232}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
 --- !u!1001 &3412209911876449357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,6 +860,10 @@ PrefabInstance:
     - target: {fileID: 1401212276481189958, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
       propertyPath: m_Name
       value: BaseEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401212276481189958, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4746549588698598272, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
       propertyPath: m_Materials.Array.data[0]
