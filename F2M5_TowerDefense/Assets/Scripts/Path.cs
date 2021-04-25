@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Path : MonoBehaviour
+public class Path
 {
     private Waypoint[] _waypoints;
 
+    public void SetWaypoints(Waypoint[] waypoints)
+    {
+        _waypoints = waypoints;
+    }
+    
     public Waypoint GetPathStart()
     {
         return _waypoints[0];
