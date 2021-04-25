@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7815719806920669998}
-  - component: {fileID: 2849765727845976304}
-  - component: {fileID: 8785115020701769544}
-  - component: {fileID: 1377813029564969789}
+  - component: {fileID: 5500413722205510484}
+  - component: {fileID: 1579596066881719703}
+  - component: {fileID: 3305632529743081362}
   - component: {fileID: -7674476044525111613}
   m_Layer: 7
   m_Name: BaseTile
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2849765727845976304
+--- !u!33 &5500413722205510484
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8922731291968457582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8785115020701769544
+--- !u!23 &1579596066881719703
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1377813029564969789
+--- !u!65 &3305632529743081362
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

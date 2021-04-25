@@ -6,6 +6,9 @@ public class TowerSpawner : MonoBehaviour
 {
     [SerializeField] private Tower[] _towers;
     [SerializeField] private LayerMask _layer;
+    [SerializeField] [Range(0, 1)] private float _placingAlpha;
+
+    [SerializeField] private Color _invalidPositionColor;
     
     private Tower _selectedTower;
     void Update()
@@ -29,6 +32,12 @@ public class TowerSpawner : MonoBehaviour
     {
         bool isBuilding = true;
         Tower tower = Instantiate(_selectedTower, transform);
+        Renderer towerRenderer = tower.GetComponent<Renderer>();
+        Color towerColor = towerRenderer.material.color;
+        Color currentColor = towerColor;
+        
+        towerColor.a = _placingAlpha;
+        _invalidPositionColor.a = _placingAlpha;
         
         tower.enabled = false;
         _selectedTower = null;
@@ -41,12 +50,17 @@ public class TowerSpawner : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layer))
             {
                 Tile tile = hit.transform.GetComponent<Tile>();
-                tower.transform.position = tile.transform.position;
+                // height offset for now
+                // todo: should be correctly implemented when art is implemented
+                Vector3 heightOffsetPosition = new Vector3(tile.transform.position.x, 0.3f, tile.transform.position.z);
+                tower.transform.position = heightOffsetPosition;
                 
                 // check for valid position
                 // todo: implement state for buildes tiles (or set buildalble bool)
                 // todo: implement visual feedback for valid build tile
-                bool validBuildTile = tile.Buildable;
+                // todo: should we check if we need to update
+                currentColor = tile.Buildable ? towerColor : _invalidPositionColor;
+                towerRenderer.material.color = currentColor;
                 
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
@@ -55,6 +69,8 @@ public class TowerSpawner : MonoBehaviour
                 }   
                 else if (Input.GetMouseButtonDown(0))
                 {
+                    towerColor.a = 1;
+                    towerRenderer.material.color = towerColor;
                     tower.enabled = true;
                     isBuilding = false;
                 }
