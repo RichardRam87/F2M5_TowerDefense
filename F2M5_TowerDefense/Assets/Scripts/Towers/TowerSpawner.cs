@@ -19,6 +19,8 @@ public class TowerSpawner : MonoBehaviour
     public void SelectTower(int index)
     {
         _selectedTower = _towers[index];
+        
+        StopCoroutine(BuildRoutine());
         StartCoroutine(BuildRoutine());
     }
 
