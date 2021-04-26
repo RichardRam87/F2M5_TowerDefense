@@ -957,6 +957,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[0].interval
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[1].interval
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[0].enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[1].enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[0].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[0].enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[1].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[1].enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+    - target: {fileID: 6769146518565752433, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
+      propertyPath: _waves.Array.data[1].enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
     - target: {fileID: 6769146518565752434, guid: 6b20798f83239f041be36864e9c6f514, type: 3}
       propertyPath: m_Name
       value: WaveSystem
