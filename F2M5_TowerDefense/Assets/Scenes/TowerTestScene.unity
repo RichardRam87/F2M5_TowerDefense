@@ -837,13 +837,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129884604}
-  m_LocalRotation: {x: -0.35395247, y: -0.007849845, z: 0.0029200853, w: -0.9352259}
+  m_LocalRotation: {x: -0.37460646, y: 0, z: 0, w: -0.9271839}
   m_LocalPosition: {x: 1.5, y: 4.5, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 404, y: 0, z: 0}
 --- !u!4 &2145627690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1313259696686488535, guid: 4e251fd75f9b1354a913db0e3198d21b, type: 3}
@@ -859,6 +859,10 @@ PrefabInstance:
     - target: {fileID: 1401212276481189958, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
       propertyPath: m_Name
       value: BaseEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401212276481189958, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6284356208689369923, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
       propertyPath: m_RootOrder
