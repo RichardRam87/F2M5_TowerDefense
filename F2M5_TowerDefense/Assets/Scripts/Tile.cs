@@ -6,4 +6,9 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] private bool _buildable;
     public bool Buildable => _buildable;
+
+    public void SetBuildable(bool state)
+    {
+        _buildable = state;
+    }
 }

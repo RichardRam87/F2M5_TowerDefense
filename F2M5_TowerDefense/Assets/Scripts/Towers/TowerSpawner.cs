@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,21 @@ public class TowerSpawner : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float _placingAlpha;
 
     [SerializeField] private Color _invalidPositionColor;
+    [SerializeField] private Color _validPositionColor;
     
     private Tower _selectedTower;
-    void Update()
+    private bool _isBuilding;
+
+    private void Awake()
     {
+        _validPositionColor.a = _placingAlpha;
+        _invalidPositionColor.a = _placingAlpha;
+    }
+
+    void Update()
+    { 
+        if (_isBuilding) return;
+        
         if (Input.GetKeyDown(KeyCode.Alpha1))
             SelectTower(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -30,53 +42,43 @@ public class TowerSpawner : MonoBehaviour
     //todo: convert routine to into readable functions
     IEnumerator BuildRoutine()
     {
-        bool isBuilding = true;
         Tower tower = Instantiate(_selectedTower, transform);
-        Renderer towerRenderer = tower.GetComponent<Renderer>();
-        Color towerColor = towerRenderer.material.color;
-        Color currentColor = towerColor;
-        
-        towerColor.a = _placingAlpha;
-        _invalidPositionColor.a = _placingAlpha;
         
         tower.enabled = false;
-        _selectedTower = null;
+        _isBuilding = true;
+
+        // todo: set colorstate based on spawn position
+        // now we can instantiate a tower without hovering a tile
         
-        while (isBuilding)
+        while (_isBuilding)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layer))
             {
-                
                 Tile tile = hit.transform.parent.GetComponent<Tile>();
-                // height offset for now
-                // todo: should be correctly implemented when art is implemented
-                Vector3 heightOffsetPosition = new Vector3(tile.transform.position.x, 0.3f, tile.transform.position.z);
-                tower.transform.position = heightOffsetPosition;
+                tower.transform.position = tile.transform.position;
                 
-                // check for valid position
-                // todo: implement state for buildes tiles (or set buildalble bool)
-                // todo: implement visual feedback for valid build tile
                 // todo: should we check if we need to update
-                currentColor = tile.Buildable ? towerColor : _invalidPositionColor;
-                towerRenderer.material.color = currentColor;
+                Color currentColor = tile.Buildable ? _validPositionColor : _invalidPositionColor;
+                tower.SetColor(currentColor);
                 
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    isBuilding = false;
+                    _isBuilding = false;
                     Destroy(tower.gameObject);
                 }   
-                else if (Input.GetMouseButtonDown(0))
+                else if (Input.GetMouseButtonDown(0) && tile.Buildable)
                 {
-                    towerColor.a = 1;
-                    towerRenderer.material.color = towerColor;
+                    tile.SetBuildable(false);
+                    tower.SetDefaultColor();
                     tower.enabled = true;
-                    isBuilding = false;
+                    _isBuilding = false;
                 }
             }
             yield return null;
         }
+        _selectedTower = null;
     }
 }

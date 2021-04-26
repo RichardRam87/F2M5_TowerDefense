@@ -49,5 +49,6 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 128
-  _placingAlpha: 0.6
+  _placingAlpha: 0.4
   _invalidPositionColor: {r: 1, g: 0, b: 0, a: 0.57254905}
+  _validPositionColor: {r: 0, g: 1, b: 0.07280922, a: 0}

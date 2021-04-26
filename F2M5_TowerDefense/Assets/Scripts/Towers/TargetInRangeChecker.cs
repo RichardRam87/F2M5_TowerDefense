@@ -16,7 +16,7 @@ public class TargetInRangeChecker : MonoBehaviour
 
       foreach (Collider hitCollider in hitColliders)
       {
-         Enemy e = hitCollider.GetComponent<Enemy>();
+         Enemy e = hitCollider.transform.root.GetComponent<Enemy>();
          if (e != null)
          {
             enemy = e;
