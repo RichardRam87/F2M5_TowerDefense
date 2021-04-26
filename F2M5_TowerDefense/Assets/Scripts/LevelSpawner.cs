@@ -27,6 +27,11 @@ public class LevelSpawner : MonoBehaviour
         SpawnLevel(data.LevelData[0]);
     }
 
+    private void CreatePaths()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void SpawnLevel(LevelData levelData)
     {
         _levelGameObject = new GameObject("Level");
@@ -52,8 +57,11 @@ public class LevelSpawner : MonoBehaviour
             case "Normal":
                 index = 0;
                 break;
-            case "Waypoint":
+            case "Path":
                 index = 1;
+                break;
+            case "Spawnpoint":
+                index = 2;
                 break;
         }
 
