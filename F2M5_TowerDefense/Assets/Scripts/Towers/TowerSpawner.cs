@@ -49,7 +49,8 @@ public class TowerSpawner : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layer))
             {
-                Tile tile = hit.transform.GetComponent<Tile>();
+                
+                Tile tile = hit.transform.parent.GetComponent<Tile>();
                 // height offset for now
                 // todo: should be correctly implemented when art is implemented
                 Vector3 heightOffsetPosition = new Vector3(tile.transform.position.x, 0.3f, tile.transform.position.z);
