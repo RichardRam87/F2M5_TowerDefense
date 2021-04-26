@@ -14,11 +14,14 @@ public class TowerSpawner : MonoBehaviour
     
     private Tower _selectedTower;
     private bool _isBuilding;
+    private GameObject _towerHolder;
 
     private void Awake()
     {
         _validPositionColor.a = _placingAlpha;
         _invalidPositionColor.a = _placingAlpha;
+
+        _towerHolder = new GameObject("Towers");
     }
 
     void Update()
@@ -42,7 +45,7 @@ public class TowerSpawner : MonoBehaviour
     //todo: convert routine to into readable functions
     IEnumerator BuildRoutine()
     {
-        Tower tower = Instantiate(_selectedTower, transform);
+        Tower tower = Instantiate(_selectedTower, _towerHolder.transform);
         
         tower.enabled = false;
         _isBuilding = true;

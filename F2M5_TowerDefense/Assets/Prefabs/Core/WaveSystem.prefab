@@ -43,9 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d2409aa50935e49a4567ab6760d19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWave:
-    enemies:
+  _waves:
+  - enemies:
+    - {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
+    interval: 1
+  - enemies:
     - {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
     - {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
-    interval: 1.5
-  _waveStartDelay: 1
+    interval: 1

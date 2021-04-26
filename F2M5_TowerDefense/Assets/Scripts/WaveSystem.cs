@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -13,24 +14,20 @@ public class WaveSystem : MonoBehaviour
     }
 
     [SerializeField] private WaveData[] _waves;
-    [SerializeField] private float _waveStartDelay;
+    [SerializeField] private UnityEvent OnWaveComplete;
 
     private int _waveIndex = 0;
+    private float _startDelay;
     private List<Enemy> _activeEnemies;
     private bool _isWaveActive = false;
-    
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !_isWaveActive)
-            StartNextWave();
-    }
 
-    private void StartNextWave()
+    public void StartNextWave(float startDelay = 0)
     {
+        _startDelay = startDelay;
         StartWave(_waves[_waveIndex]);
     }
 
-    public void StartWave(WaveData waveData)
+    private void StartWave(WaveData waveData)
     {
         StartCoroutine(WaveUpdate(waveData));
     }
@@ -50,7 +47,7 @@ public class WaveSystem : MonoBehaviour
         List<Enemy> activeEnemies = new List<Enemy>();
         _isWaveActive = true;
 
-        yield return new WaitForSeconds(_waveStartDelay);
+        yield return new WaitForSeconds(_startDelay);
         
         while (!waveFinishedSpawning || !waveCompleted)
         {
@@ -78,17 +75,19 @@ public class WaveSystem : MonoBehaviour
             if (enemyIndex >= waveData.enemies.Length && waveFinishedSpawning && e.Length == 0)
             {
                 Debug.Log("Wave Completed!");
+                
                 waveCompleted = true;
             }
             yield return null;
         }
         _isWaveActive = false;
         _waveIndex++;
-
+        
         // this call should be made by the gamestate...
         if (LastWaveFinished())
         {
             Debug.Log("Game Completed!");
         }
+        OnWaveComplete?.Invoke();
     }
 }
