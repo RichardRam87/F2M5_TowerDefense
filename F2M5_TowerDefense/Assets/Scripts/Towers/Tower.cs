@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(TargetInRangeChecker))]
 public abstract class Tower : MonoBehaviour
 {
     protected TargetInRangeChecker targetInRangeChecker;
+    protected float timer;
 
     private Renderer[] _renderers;
     private Dictionary<Material, Color> _materialMap = new Dictionary<Material, Color>();
@@ -29,8 +31,9 @@ public abstract class Tower : MonoBehaviour
         }
     }
     
-    void Update()
+    protected virtual void Update()
     {
+        timer += Time.deltaTime;
         if (!CanAttack()) return;
 
         Attack();

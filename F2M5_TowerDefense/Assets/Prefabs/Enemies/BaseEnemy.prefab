@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6284356208689369923}
   - component: {fileID: 5518988436889088284}
   - component: {fileID: 124294847}
+  - component: {fileID: 7766426406967994735}
   m_Layer: 6
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -59,6 +60,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b817b538751c0145a7bf36092ba8188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7766426406967994735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401212276481189958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53aff0df848bdb42b9b84daf8f334e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startHealth: 3
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 124294847}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: DestroyEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &4838291754647500797
 CapsuleCollider:
   m_ObjectHideFlags: 0
