@@ -12,7 +12,7 @@ public class WaveSystem : MonoBehaviour
         public Enemy[] enemies;
         public float interval;
     }
-
+    
     [SerializeField] private WaveData[] _waves;
     [SerializeField] private UnityEvent OnWaveComplete;
 
