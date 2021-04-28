@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39aec2419bb10714d86849646be842f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildCost: 3
   _shootSpeed: 1
 --- !u!1001 &2715304672063884346
 PrefabInstance:

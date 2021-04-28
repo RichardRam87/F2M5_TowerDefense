@@ -92,6 +92,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _towerSpawner: {fileID: 5421001393523344036}
+  _resourceHandler: {fileID: 2829118444511128157}
 --- !u!114 &3768518908634219117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c9146622b6fa641b8b8461555d9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startGold: 100
   _onResourceGained:
     m_PersistentCalls:
       m_Calls:

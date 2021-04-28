@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     private void SetupEnemy()
     {
-        ResourceHandler rh = GameObject.FindObjectOfType<ResourceHandler>();
+        ResourceHandler rh = FindObjectOfType<ResourceHandler>();
         _health.OnDeath.AddListener(() => rh.AddGold(_worthOnDeath));
     }
 

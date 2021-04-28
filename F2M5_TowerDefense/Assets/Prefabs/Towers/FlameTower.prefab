@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb92677e7784ad045a6a11eb38ffa251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildCost: 5
 --- !u!1001 &3445501001190944365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,7 +197,7 @@ PrefabInstance:
     - target: {fileID: 7889565039322720130, guid: ac46451e4eb307543aee0a6ba45d0780, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 57cd7cef04b215c4ab8982a3c3b92129, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8514089903268490204, guid: ac46451e4eb307543aee0a6ba45d0780, type: 3}
       propertyPath: m_Name
       value: FlameTower

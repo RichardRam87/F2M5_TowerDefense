@@ -7,6 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof(TargetInRangeChecker))]
 public abstract class Tower : MonoBehaviour
 {
+    [SerializeField] private int _buildCost;
+    public int BuildCost => _buildCost;
+    
     protected TargetInRangeChecker targetInRangeChecker;
     protected float timer;
 

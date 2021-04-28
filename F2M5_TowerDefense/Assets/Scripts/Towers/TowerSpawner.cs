@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TowerSpawner : MonoBehaviour
 {
@@ -11,9 +13,10 @@ public class TowerSpawner : MonoBehaviour
 
     [SerializeField] private Color _invalidPositionColor;
     [SerializeField] private Color _validPositionColor;
-    
+
     private Tower _selectedTower;
     private bool _isBuilding;
+    public bool IsBuilding => _isBuilding;
     private GameObject _towerHolder;
 
     private void Awake()
@@ -24,64 +27,46 @@ public class TowerSpawner : MonoBehaviour
         _towerHolder = new GameObject("Towers");
     }
 
-    void Update()
-    { 
-        if (_isBuilding) return;
-        
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SelectTower(0);
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-            SelectTower(1);
-    }
-
-    public void SelectTower(int index)
+    public Tower SelectTower(int index)
     {
-        _selectedTower = _towers[index];
-        
-        StopCoroutine(BuildRoutine());
-        StartCoroutine(BuildRoutine());
-    }
-
-    //todo: convert routine to into readable functions
-    IEnumerator BuildRoutine()
-    {
-        Tower tower = Instantiate(_selectedTower, _towerHolder.transform);
-        
-        tower.enabled = false;
+        _selectedTower = Instantiate(_towers[index], _towerHolder.transform);
+        _selectedTower.enabled = false;
         _isBuilding = true;
-
-        // todo: set colorstate based on spawn position
-        // now we can instantiate a tower without hovering a tile
         
-        while (_isBuilding)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        return _selectedTower;
+    }
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layer))
-            {
-                Tile tile = hit.transform.GetComponent<Tile>();
-                tower.transform.position = tile.transform.position;
+    public Tile UpdateTowerPosition()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layer))
+        {
+            Tile tile = hit.transform.GetComponent<Tile>();
+            _selectedTower.transform.position = tile.transform.position;
                 
-                // todo: should we check if we need to update
-                Color currentColor = tile.Buildable ? _validPositionColor : _invalidPositionColor;
-                tower.SetColor(currentColor);
-                
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    _isBuilding = false;
-                    Destroy(tower.gameObject);
-                }   
-                else if (Input.GetMouseButtonDown(0) && tile.Buildable)
-                {
-                    tile.SetBuildable(false);
-                    tower.SetDefaultColor();
-                    tower.enabled = true;
-                    _isBuilding = false;
-                }
-            }
-            yield return null;
+            // todo: should we check if we need to update
+            Color currentColor = tile.Buildable ? _validPositionColor : _invalidPositionColor;
+            _selectedTower.SetColor(currentColor);
+            
+            return tile;
         }
+        return null;
+    }
+
+    public void PlaceTower(Tile tile)
+    {
+        tile.SetBuildable(false);
+        _selectedTower.SetDefaultColor();
+        _selectedTower.enabled = true;
+        _isBuilding = false;
+    }
+
+    public void CancelBuild()
+    {
+        _isBuilding = false;
+        Destroy(_selectedTower.gameObject);
         _selectedTower = null;
     }
 }
