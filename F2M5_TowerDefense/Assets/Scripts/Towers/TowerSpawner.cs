@@ -60,7 +60,7 @@ public class TowerSpawner : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layer))
             {
-                Tile tile = hit.transform.parent.GetComponent<Tile>();
+                Tile tile = hit.transform.GetComponent<Tile>();
                 tower.transform.position = tile.transform.position;
                 
                 // todo: should we check if we need to update

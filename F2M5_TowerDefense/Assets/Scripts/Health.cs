@@ -8,9 +8,10 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float _startHealth;
 
-    [SerializeField] private UnityEvent OnTakeDamage;
-    [SerializeField] private UnityEvent OnDeath;
-    
+    [SerializeField] private UnityEvent _OnTakeDamage;
+    [SerializeField] private UnityEvent _OnDeath;
+    public UnityEvent OnDeath => _OnDeath;
+
     private float _currentHealth;
     public float CurrentHealth => _currentHealth;
 
@@ -22,11 +23,11 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dmg = 1)
     {
         _currentHealth = Mathf.Max(_currentHealth - dmg, 0);
-        OnTakeDamage?.Invoke();
+        _OnTakeDamage?.Invoke();
 
         if (_currentHealth <= 0)
         {
-            OnDeath?.Invoke();
+            _OnDeath?.Invoke();
         }
     }
 

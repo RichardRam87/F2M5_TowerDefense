@@ -19,7 +19,6 @@ public class WaveSystem : MonoBehaviour
     private int _waveIndex = 0;
     private float _startDelay;
     private List<Enemy> _activeEnemies;
-    private bool _isWaveActive = false;
 
     public void StartNextWave(float startDelay = 0)
     {
@@ -45,7 +44,6 @@ public class WaveSystem : MonoBehaviour
         int enemyIndex = 0;
         
         List<Enemy> activeEnemies = new List<Enemy>();
-        _isWaveActive = true;
 
         yield return new WaitForSeconds(_startDelay);
         
@@ -80,7 +78,6 @@ public class WaveSystem : MonoBehaviour
             }
             yield return null;
         }
-        _isWaveActive = false;
         _waveIndex++;
         
         // this call should be made by the gamestate...

@@ -51,3 +51,30 @@ MonoBehaviour:
     - {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
     - {fileID: 124294847, guid: e9bba6c7bf088e84ca5b74e92374c759, type: 3}
     interval: 1
+  OnWaveComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameplayStateMachine, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameStateUI, Assembly-CSharp
+        m_MethodName: ShowGameStateUI
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wave Completed!
+          m_BoolArgument: 0
+        m_CallState: 2
