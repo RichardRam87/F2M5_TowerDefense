@@ -22,7 +22,7 @@ public class GameplayStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _currentState != GameplayStateType.WaveState)
         {
             SetState(GameplayStateType.WaveState);
         }

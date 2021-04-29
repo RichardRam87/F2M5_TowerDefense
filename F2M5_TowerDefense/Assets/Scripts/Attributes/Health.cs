@@ -51,13 +51,13 @@ public class Health : MonoBehaviour
 
     IEnumerator DamageOverTimeUpdate(float tickDamage, float ticksPerSecond, float dotDuration)
     {
-        float timer = 0;
         float tickSpeed = 1f / ticksPerSecond;
+        float timer = tickSpeed;
         
         _hasActiveDOT = true;
 
         yield return new WaitForSeconds(tickSpeed);
-        
+
         while (timer <= dotDuration)
         {
             timer += tickSpeed;
