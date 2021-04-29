@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildCost: 3
+  _radius: 1
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
   _shootSpeed: 1
 --- !u!1001 &2715304672063884346
 PrefabInstance:
@@ -21,6 +25,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 485381980289801254, guid: ac46451e4eb307543aee0a6ba45d0780, type: 3}
+      propertyPath: _radius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5832946970939956602, guid: ac46451e4eb307543aee0a6ba45d0780, type: 3}
       propertyPath: m_RootOrder
       value: 0

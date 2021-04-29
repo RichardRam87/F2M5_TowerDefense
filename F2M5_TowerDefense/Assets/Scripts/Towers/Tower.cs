@@ -1,16 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(TargetInRangeChecker))]
 public abstract class Tower : MonoBehaviour
 {
     [SerializeField] private int _buildCost;
     public int BuildCost => _buildCost;
     
-    protected TargetInRangeChecker targetInRangeChecker;
     protected float timer;
 
     private Renderer[] _renderers;
@@ -18,9 +13,8 @@ public abstract class Tower : MonoBehaviour
 
     private const string shaderColor = "_Color";
     
-    private void Awake()
+    protected virtual void Awake()
     {
-        targetInRangeChecker = GetComponent<TargetInRangeChecker>();
         _renderers = GetComponentsInChildren<Renderer>();
 
         foreach (Renderer renderer in _renderers)
@@ -41,24 +35,7 @@ public abstract class Tower : MonoBehaviour
 
         Attack();
     }
-
-    protected abstract bool CanAttack();
-    protected abstract void Attack();
-
-    /*
-    public void SetTowerAlpha(float alpha)
-    {
-        foreach (var renderer in _renderers)
-        {
-            foreach (Material material in renderer.materials)
-            {
-                Color color = material.color;
-                color.a = alpha;
-                material.SetColor(shaderColor, color);
-            }
-        }
-    }
-    */
+    
     public void SetColor(Color color)
     {
         foreach (Renderer renderer in _renderers)
@@ -84,9 +61,7 @@ public abstract class Tower : MonoBehaviour
             }
         }
     }
-
-    public void SetPlacementColor(Color color)
-    {
-        
-    }
+    
+    protected abstract bool CanAttack();
+    protected abstract void Attack();
 }

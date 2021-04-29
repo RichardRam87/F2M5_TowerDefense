@@ -15,6 +15,7 @@ public class BuildState : GameplayState
         OnStateExit.AddListener(() => _towerSpawner.gameObject.SetActive(false));
     }
 
+    // TODO: Move logic to statemachine!
     protected override void Update()
     {
         if (_towerSpawner.IsBuilding)

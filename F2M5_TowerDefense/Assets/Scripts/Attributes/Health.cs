@@ -18,6 +18,9 @@ public class Health : MonoBehaviour
     private float _currentHealth;
     public float CurrentHealth => _currentHealth;
 
+    private bool _hasActiveDOT = false;
+    public bool HasActiveDOT => _hasActiveDOT;
+
     private void Start()
     {
         _currentHealth = _startHealth;
@@ -34,8 +37,35 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void AddDamageOverTimeEffect(float tickDamage, float ticksPerSecond, float dotDuration)
+    {
+        if (_hasActiveDOT) return;
+
+        StartCoroutine(DamageOverTimeUpdate(tickDamage, ticksPerSecond, dotDuration));
+    }
+
     public float GetNormalizedHealth()
     {
         return _currentHealth / _startHealth; 
+    }
+
+    IEnumerator DamageOverTimeUpdate(float tickDamage, float ticksPerSecond, float dotDuration)
+    {
+        float timer = 0;
+        float tickSpeed = 1f / ticksPerSecond;
+        
+        _hasActiveDOT = true;
+
+        yield return new WaitForSeconds(tickSpeed);
+        
+        while (timer <= dotDuration)
+        {
+            timer += tickSpeed;
+            TakeDamage(tickDamage);
+            
+            yield return new WaitForSeconds(tickSpeed);
+        }
+
+        _hasActiveDOT = false;
     }
 }
