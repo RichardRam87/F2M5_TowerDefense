@@ -172,6 +172,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2415913282744153854}
     m_Modifications:
+    - target: {fileID: 961822941398690303, guid: cff392e5a05fe7a4eb996e015d37bc94, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961822941398690303, guid: cff392e5a05fe7a4eb996e015d37bc94, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 961822941398690303, guid: cff392e5a05fe7a4eb996e015d37bc94, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 961822941398690303, guid: cff392e5a05fe7a4eb996e015d37bc94, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 46
+      objectReference: {fileID: 0}
     - target: {fileID: 6012196912102750168, guid: cff392e5a05fe7a4eb996e015d37bc94, type: 3}
       propertyPath: m_Name
       value: UI
