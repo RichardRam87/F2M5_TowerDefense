@@ -14,9 +14,8 @@ public class BuildState : GameplayState
         OnStateEnter.AddListener(() =>_towerSpawner.gameObject.SetActive(true));
         OnStateExit.AddListener(() => _towerSpawner.gameObject.SetActive(false));
     }
-
-    // TODO: Move logic to statemachine!
-    protected override void Update()
+    
+    public override void StateUpdate(float deltaTime)
     {
         if (_towerSpawner.IsBuilding)
         {
@@ -42,5 +41,13 @@ public class BuildState : GameplayState
             _towerToBuild = _towerSpawner.SelectTower(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
             _towerToBuild = _towerSpawner.SelectTower(1);
+    }
+
+    public override void StateExit()
+    {
+        base.StateExit();
+        
+        if (_towerSpawner.IsBuilding)
+            _towerSpawner.CancelBuild();
     }
 }

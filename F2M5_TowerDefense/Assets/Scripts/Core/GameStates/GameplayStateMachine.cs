@@ -26,6 +26,7 @@ public class GameplayStateMachine : MonoBehaviour
         {
             SetState(GameplayStateType.WaveState);
         }
+        _stateMap[_currentState].StateUpdate(Time.deltaTime);
     }
 
     // called from UI, int argument for now

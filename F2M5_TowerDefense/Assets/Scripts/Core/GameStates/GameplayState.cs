@@ -6,7 +6,7 @@ public abstract class GameplayState : MonoBehaviour
     [SerializeField] protected UnityEvent OnStateEnter;
     [SerializeField] protected UnityEvent OnStateExit;
 
-    protected virtual void Update() { }
+    public virtual void StateUpdate(float deltaTime) { }
 
     public virtual void StateEnter()
     {
