@@ -14,11 +14,13 @@ public class GameStateUI : MonoBehaviour
     private Text _gamestateText;
 
     private Animator _animator;
+    private Animation _animation;
     private readonly int _fade = Animator.StringToHash("Fade");
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _animation = GetComponent<Animation>();
     }
 
     public void ShowGameStateUI(string text)
