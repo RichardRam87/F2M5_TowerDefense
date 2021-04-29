@@ -7,13 +7,12 @@ public class ResourceUI : MonoBehaviour
 {
     [SerializeField] private Text _text;
 
-    private Animator _animator;
+    private Animation _animation;
     private bool _isSetup;
-    private readonly int _resourceGained = Animator.StringToHash("ResourceGained");
 
     private void Awake()
     {
-        _animator = GetComponentInChildren<Animator>();
+        _animation = GetComponent<Animation>();
     }
 
     private void Start()
@@ -27,7 +26,7 @@ public class ResourceUI : MonoBehaviour
 
         if (_isSetup)
         {
-            _animator.SetTrigger(_resourceGained);
+            _animation.Play();
         }
         _isSetup = true;
     }

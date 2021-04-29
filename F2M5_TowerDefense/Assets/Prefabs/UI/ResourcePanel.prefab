@@ -90,7 +90,7 @@ Animator:
   m_GameObject: {fileID: 3579474357831692701}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd3369bb07a187c4f956108b8b733aeb, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 1683208339469598624}
   - component: {fileID: 6252324662966668189}
   - component: {fileID: 6449928700505257125}
+  - component: {fileID: 5134477396055106319}
   m_Layer: 5
   m_Name: ResourcePanel
   m_TagString: Untagged
@@ -189,3 +190,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 6795904128393758915}
+--- !u!111 &5134477396055106319
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5333573687645015980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f80bb8a203cd95c42bd3dc50a93f54fb, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f80bb8a203cd95c42bd3dc50a93f54fb, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

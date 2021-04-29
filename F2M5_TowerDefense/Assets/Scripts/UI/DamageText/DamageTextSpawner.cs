@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageTextSpawner : MonoBehaviour
 {
     [SerializeField] private DamageText _damageTextPrefab;
-
+    
     public void Spawn(float damageAmount)
     {
         DamageText instance = Instantiate(_damageTextPrefab, transform);

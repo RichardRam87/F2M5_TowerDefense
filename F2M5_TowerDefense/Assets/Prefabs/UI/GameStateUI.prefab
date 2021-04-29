@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2722439552208208103}
   - component: {fileID: 2722439552208208099}
   - component: {fileID: 2722439552208208096}
-  - component: {fileID: 1287687641549406721}
   - component: {fileID: 2722439552208208097}
   - component: {fileID: 2722439552208208102}
+  - component: {fileID: 8288871656235398727}
+  - component: {fileID: 5094225020328351173}
   m_Layer: 5
   m_Name: GameStateUI
   m_TagString: Untagged
@@ -79,25 +80,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &1287687641549406721
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2722439552208208100}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c67b25facd4ad6348bba26bb5df83700, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2722439552208208097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3833765ec78e2242be92fd4392f4155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationSpeed: 0.35
   _dissapearDelay: 1.5
   _gamestateText: {fileID: 2722439552358330386}
 --- !u!114 &2722439552208208102
@@ -125,6 +106,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354a5678ce9c1054babfffe931671b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &8288871656235398727
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722439552208208100}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0ce6430a601fdbe4e977c8cff1336e68, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0ce6430a601fdbe4e977c8cff1336e68, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!225 &5094225020328351173
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722439552208208100}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2722439552358330384
 GameObject:
   m_ObjectHideFlags: 0
