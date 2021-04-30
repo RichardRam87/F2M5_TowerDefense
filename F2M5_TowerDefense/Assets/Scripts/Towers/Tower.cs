@@ -8,14 +8,12 @@ public abstract class Tower : MonoBehaviour
     
     protected float timer;
 
-    private Renderer[] _renderers;
+    private MeshRenderer[] _renderers;
     private Dictionary<Material, Color> _materialMap = new Dictionary<Material, Color>();
-
-    private const string shaderColor = "_Color";
     
     protected virtual void Awake()
     {
-        _renderers = GetComponentsInChildren<Renderer>();
+        _renderers = GetComponentsInChildren<MeshRenderer>();
 
         foreach (Renderer renderer in _renderers)
         {
@@ -38,7 +36,7 @@ public abstract class Tower : MonoBehaviour
     
     public void SetColor(Color color)
     {
-        foreach (Renderer renderer in _renderers)
+        foreach (MeshRenderer renderer in _renderers)
         {
             Material[] materials = renderer.materials;
 
@@ -51,7 +49,7 @@ public abstract class Tower : MonoBehaviour
 
     public void SetDefaultColor()
     {
-        foreach (Renderer renderer in _renderers)
+        foreach (MeshRenderer renderer in _renderers)
         {
             Material[] materials = renderer.materials;
 

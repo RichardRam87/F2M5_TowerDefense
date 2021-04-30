@@ -4,35 +4,12 @@ using UnityEngine;
 
 public class LevelSpawner : MonoBehaviour
 {
-    [SerializeField] private TextAsset _TestLevelJson;
     [SerializeField] private Tile[] _TilePrefabs;
-    
+
     private GameObject _levelGameObject;
     
-    public struct GameData
-    {
-        public LevelData[] LevelData;
-    }
-    [System.Serializable]
-    public struct LevelData
-    {
-        public int Width;
-        public int Height;
-        public string[] Tiles;
-    }
-
-    void Start()
-    {
-        GameData data = JsonUtility.FromJson<GameData>(_TestLevelJson.ToString());
-        SpawnLevel(data.LevelData[0]);
-    }
-
-    private void CreatePaths()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void SpawnLevel(LevelData levelData)
+    // todo: Method should return Tile[]
+    public bool SpawnLevel(SetupGameplayState.LevelData levelData)
     {
         _levelGameObject = new GameObject("Level");
         _levelGameObject.transform.SetParent(transform);
@@ -46,24 +23,19 @@ public class LevelSpawner : MonoBehaviour
             tile.name = levelData.Tiles[i];
             tile.transform.position = tilePosition;
         }
+        return true;
     }
 
     private int GetTileTypeIndex(string tileName)
     {
         int index = 0;
-        
-        switch (tileName)
-        {
-            case "Normal":
-                index = 0;
-                break;
-            case "Path":
-                index = 1;
-                break;
-            case "Spawnpoint":
-                index = 2;
-                break;
-        }
+
+        if (tileName.Equals("Normal"))
+            index = 0;
+        else if (tileName.Contains("Path"))
+            index = 1;
+        else if (tileName.Equals("Spawnpoint"))
+            index = 2;
 
         return index;
     }

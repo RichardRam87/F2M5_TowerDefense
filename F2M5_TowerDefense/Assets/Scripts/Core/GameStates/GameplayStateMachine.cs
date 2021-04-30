@@ -4,10 +4,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(BuildState))]
 [RequireComponent(typeof(WaveState))]
+[RequireComponent(typeof(SetupGameplayState))]
 public class GameplayStateMachine : MonoBehaviour
 {
     public enum GameplayStateType
     {
+        SetupState,
         BuildState,
         WaveState
     }
@@ -47,14 +49,16 @@ public class GameplayStateMachine : MonoBehaviour
     {
         BuildState buildState = GetComponent<BuildState>();
         WaveState waveState = GetComponent<WaveState>();
+        SetupGameplayState setupState = GetComponent<SetupGameplayState>();
         
         _stateMap = new Dictionary<GameplayStateType, GameplayState>();
+        _stateMap.Add(GameplayStateType.SetupState, setupState);
         _stateMap.Add(GameplayStateType.BuildState, buildState);
         _stateMap.Add(GameplayStateType.WaveState, waveState);
         _currentState = GameplayStateType.BuildState;
-        
-        waveState.StateExit();
-        buildState.StateEnter();
 
+        waveState.enabled = false;
+        buildState.enabled = false;
+        setupState.StateEnter();
     }
 }

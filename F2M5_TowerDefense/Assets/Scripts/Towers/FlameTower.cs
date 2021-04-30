@@ -55,7 +55,7 @@ public class FlameTower : Tower
         foreach (FlamePoint flamePoint in _flamePoints)
         {
             if (!(_validEnemyMap[flamePoint].Count > 0)) continue;
-             
+            
             foreach (Enemy enemy in _validEnemyMap[flamePoint])
             {
                 enemy.GetHealth().AddDamageOverTimeEffect(_tickDamage, _ticksPerSecond, _dotDuration);
