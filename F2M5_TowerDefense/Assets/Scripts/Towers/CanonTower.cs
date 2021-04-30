@@ -7,22 +7,38 @@ public class CanonTower : Tower
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _layer;
     [SerializeField] private float _shootSpeed = 1f;
+    [SerializeField] private float _rotationSpeed;
+    [SerializeField] private Transform _gunObject;
     
     private Enemy _target;
-    
+
+
     protected override bool CanAttack()
     {
         _target = GetFirstEnemyInRange();
-        return _target != null && timer >= _shootSpeed;
+        return _target != null;
     }
 
     protected override void Attack()
     {
-        _target.GetHealth().TakeDamage(1);
-        timer = 0;
-        Debug.Log("Kanonnen los!");
+        RotateTowardsTarget();
+
+        if (timer >= _shootSpeed)
+        {
+            _target.GetHealth().TakeDamage(0);
+            timer = 0;
+            Debug.Log("Kanonnen los!");
+        }
     }
-    
+
+    private void RotateTowardsTarget()
+    {
+        Vector3 targetDirection = _target.transform.position - _gunObject.position;
+        float singleStep = _rotationSpeed * Time.deltaTime;
+        Vector3 newDirection = Vector3.RotateTowards(_gunObject.forward, targetDirection, singleStep, 0f);
+        _gunObject.rotation = Quaternion.LookRotation(newDirection);
+    }
+
     private Enemy GetFirstEnemyInRange()
     {
         Enemy enemy = null;

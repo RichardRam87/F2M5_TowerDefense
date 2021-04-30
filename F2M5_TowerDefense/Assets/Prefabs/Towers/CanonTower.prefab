@@ -17,7 +17,9 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 64
-  _shootSpeed: 1
+  _shootSpeed: 0.5
+  _rotationSpeed: 10
+  _gunObject: {fileID: 7700056738467800935}
 --- !u!1001 &2715304672063884346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,3 +225,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfaec7314c2d0834792e462f87d87e50, type: 3}
+--- !u!4 &7700056738467800935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bfaec7314c2d0834792e462f87d87e50, type: 3}
+  m_PrefabInstance: {fileID: 7878662392195088524}
+  m_PrefabAsset: {fileID: 0}
