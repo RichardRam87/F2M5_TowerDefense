@@ -16,4 +16,7 @@ public class CanonTowerStats : ScriptableObject
     
     [SerializeField] private float _rotationSpeed;
     public float RotationSpeed => _rotationSpeed;
+
+    [SerializeField] private float _shootAngle;
+    public float ShootAngle => _shootAngle;
 }

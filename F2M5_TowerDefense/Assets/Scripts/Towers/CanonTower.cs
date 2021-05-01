@@ -5,38 +5,41 @@ using UnityEngine;
 public class CanonTower : Tower
 {
     [SerializeField] private CanonTowerStats _stats;
-    //[SerializeField] private float _radius;
     [SerializeField] private LayerMask _layer;
-    //[SerializeField] private float _shootSpeed = 1f;
-    //[SerializeField] private float _rotationSpeed;
     [SerializeField] private Transform _gunObject;
     
     private Enemy _target;
 
-
     protected override bool CanAttack()
     {
         _target = GetFirstEnemyInRange();
-        return _target != null;
+
+        if (_target == null) return false;
+        
+        Vector3 targetDirection = _target.transform.position - _gunObject.position;
+        RotateTowardsTarget(targetDirection);
+        float angle = GetAngleToTarget(targetDirection);
+
+        return (timer >= _stats.ShootSpeed && angle <= _stats.ShootAngle);
     }
 
     protected override void Attack()
     {
-        RotateTowardsTarget();
-
-        if (timer >= _stats.ShootSpeed)
-        {
-            _target.GetHealth().TakeDamage(_stats.Damage);
-            timer = 0;
-            Debug.Log("Kanonnen los!");
-        }
+        _target.GetHealth().TakeDamage(_stats.Damage);
+        timer = 0;
+        Debug.Log("Kanonnen los!");
     }
 
-    private void RotateTowardsTarget()
+    private float GetAngleToTarget(Vector3 direction)
     {
-        Vector3 targetDirection = _target.transform.position - _gunObject.position;
+        return Vector3.Angle(direction, _gunObject.forward);
+    }
+
+    private void RotateTowardsTarget(Vector3 direction)
+    {
+        
         float singleStep = _stats.RotationSpeed * Time.deltaTime;
-        Vector3 newDirection = Vector3.RotateTowards(_gunObject.forward, targetDirection, singleStep, 0f);
+        Vector3 newDirection = Vector3.RotateTowards(_gunObject.forward, direction, singleStep, 0f);
         _gunObject.rotation = Quaternion.LookRotation(newDirection);
     }
 
