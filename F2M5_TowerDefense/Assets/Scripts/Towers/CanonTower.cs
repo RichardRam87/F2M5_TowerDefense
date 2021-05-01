@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CanonTower : Tower
 {
-    [SerializeField] private float _radius;
+    [SerializeField] private CanonTowerStats _stats;
+    //[SerializeField] private float _radius;
     [SerializeField] private LayerMask _layer;
-    [SerializeField] private float _shootSpeed = 1f;
-    [SerializeField] private float _rotationSpeed;
+    //[SerializeField] private float _shootSpeed = 1f;
+    //[SerializeField] private float _rotationSpeed;
     [SerializeField] private Transform _gunObject;
     
     private Enemy _target;
@@ -23,9 +24,9 @@ public class CanonTower : Tower
     {
         RotateTowardsTarget();
 
-        if (timer >= _shootSpeed)
+        if (timer >= _stats.ShootSpeed)
         {
-            _target.GetHealth().TakeDamage(0);
+            _target.GetHealth().TakeDamage(_stats.Damage);
             timer = 0;
             Debug.Log("Kanonnen los!");
         }
@@ -34,7 +35,7 @@ public class CanonTower : Tower
     private void RotateTowardsTarget()
     {
         Vector3 targetDirection = _target.transform.position - _gunObject.position;
-        float singleStep = _rotationSpeed * Time.deltaTime;
+        float singleStep = _stats.RotationSpeed * Time.deltaTime;
         Vector3 newDirection = Vector3.RotateTowards(_gunObject.forward, targetDirection, singleStep, 0f);
         _gunObject.rotation = Quaternion.LookRotation(newDirection);
     }
@@ -43,7 +44,7 @@ public class CanonTower : Tower
     {
         Enemy enemy = null;
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius, _layer);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _stats.Radius, _layer);
 
         foreach (Collider hitCollider in hitColliders)
         {
@@ -60,6 +61,6 @@ public class CanonTower : Tower
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, _radius);
+        Gizmos.DrawWireSphere(transform.position, _stats.Radius);
     }
 }

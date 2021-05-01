@@ -5,13 +5,8 @@ using UnityEngine;
 
 public class FlameTower : Tower
 {
-    [SerializeField] private float _range;
+    [SerializeField] private FlameTowerStats _stats;
     [SerializeField] private LayerMask _layer;
-
-    [SerializeField] private float _tickDamage;
-    [SerializeField] private float _ticksPerSecond;
-    [SerializeField] private float _dotDuration;
-    
     [SerializeField] private FlamePoint[] _flamePoints;
 
     private Dictionary<FlamePoint, List<Enemy>> _validEnemyMap;
@@ -33,7 +28,7 @@ public class FlameTower : Tower
     {
         foreach (FlamePoint flamePoint in _flamePoints)
         {
-            Bounds b = CalculateFlamePointBounds(flamePoint, _range);
+            Bounds b = CalculateFlamePointBounds(flamePoint, _stats.Range);
             Collider[] cols = Physics.OverlapBox(b.center, b.extents, Quaternion.identity, _layer);
             
             _validEnemyMap[flamePoint].Clear();
@@ -58,7 +53,7 @@ public class FlameTower : Tower
             
             foreach (Enemy enemy in _validEnemyMap[flamePoint])
             {
-                enemy.GetHealth().AddDamageOverTimeEffect(_tickDamage, _ticksPerSecond, _dotDuration);
+                enemy.GetHealth().AddDamageOverTimeEffect(_stats.DamagePerTick, _stats.TicksPerSecond, _stats.DotDuration);
             }
         }
     }
@@ -70,11 +65,11 @@ public class FlameTower : Tower
 
         if (Mathf.Abs(flamePoint.Forward.x) > 0)
         {
-            areaOfEffectScale = new Vector3(_range, 1, 1);
+            areaOfEffectScale = new Vector3(_stats.Range, 1, 1);
         }
         else if (Mathf.Abs(flamePoint.Forward.z) > 0)
         {
-            areaOfEffectScale = new Vector3(1, 1, _range);
+            areaOfEffectScale = new Vector3(1, 1, _stats.Range);
         }
         return new Bounds(centerPosition, areaOfEffectScale);
     }
@@ -84,7 +79,7 @@ public class FlameTower : Tower
         foreach (FlamePoint flamePoint in _flamePoints)
         {
             Gizmos.color = Color.red;
-            Bounds b = CalculateFlamePointBounds(flamePoint, _range);
+            Bounds b = CalculateFlamePointBounds(flamePoint, _stats.Range);
             
             Gizmos.DrawWireCube(b.center, b.size);
         }

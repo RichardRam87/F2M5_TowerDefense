@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildCost: 5
-  _range: 1
+  _stats: {fileID: 11400000, guid: 6681d4cdaa137fd45b2cd90abd68c6f5, type: 2}
   _layer:
     serializedVersion: 2
     m_Bits: 64
-  _tickDamage: 0.1
-  _ticksPerSecond: 2
-  _dotDuration: 3
   _flamePoints:
   - {fileID: 4887416737846762058}
   - {fileID: 6519866144834186418}

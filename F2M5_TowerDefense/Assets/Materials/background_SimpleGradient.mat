@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_SimpleGradient
+  m_Name: background_SimpleGradient
   m_Shader: {fileID: -6465566751694194690, guid: 70eadee4cae55ba488a9c688e6a99feb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -31,6 +31,9 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - Vector1_73a387a8884c46fb9e6da9cc3830dd68: 1
+    m_Colors:
+    - Color_0d22639fb75f471f902034fb6dc05fdc: {r: 0.4745098, g: 0.7372549, b: 0.6442663, a: 0}
+    - Color_40e7a93468f94d3f9fc00f5eecae7210: {r: 0.23540407, g: 0.33675468, b: 0.4339623, a: 0}
   m_BuildTextureStacks: []

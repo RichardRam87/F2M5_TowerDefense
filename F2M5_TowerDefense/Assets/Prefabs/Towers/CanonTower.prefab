@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildCost: 3
-  _radius: 1
+  _stats: {fileID: 11400000, guid: 4f84802a85db3294398e8ffc4c378f69, type: 2}
   _layer:
     serializedVersion: 2
     m_Bits: 64
-  _shootSpeed: 0.5
-  _rotationSpeed: 10
   _gunObject: {fileID: 7700056738467800935}
 --- !u!1001 &2715304672063884346
 PrefabInstance:
