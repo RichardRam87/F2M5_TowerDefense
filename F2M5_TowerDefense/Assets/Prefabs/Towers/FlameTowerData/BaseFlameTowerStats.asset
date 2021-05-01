@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0295522019b5ace4ba7bf009d8efb08b, type: 3}
   m_Name: BaseFlameTowerStats
   m_EditorClassIdentifier: 
-  _range: 1
-  _damagePerTick: 0.1
-  _ticksPerSecond: 3
-  _dotDuration: 2
+  _data:
+    _range: 1
+    _damagePerTick: 0.1
+    _ticksPerSecond: 3
+    _dotDuration: 2

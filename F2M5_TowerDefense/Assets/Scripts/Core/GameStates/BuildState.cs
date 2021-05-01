@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Rendering.Universal;
+﻿using UnityEngine;
 
+// todo: Upgrade systeem maken en implementeren
 public class BuildState : GameplayState
 {
     [SerializeField] private TowerSpawner _towerSpawner;

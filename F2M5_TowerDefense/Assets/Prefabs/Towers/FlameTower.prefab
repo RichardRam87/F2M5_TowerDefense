@@ -22,6 +22,7 @@ MonoBehaviour:
   - {fileID: 6519866144834186418}
   - {fileID: 2335228867496307060}
   - {fileID: 3819795379905338803}
+  _upgrades: {fileID: 11400000, guid: f6399f67723a21b42abd028ddf101cba, type: 2}
 --- !u!1001 &2385621630559925472
 PrefabInstance:
   m_ObjectHideFlags: 0

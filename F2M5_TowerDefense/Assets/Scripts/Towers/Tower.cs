@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//todo: Towerclass opsplitsen, nu teveel verantwoordelijkheid
+//todo: Generic upgrade systeem in tower class (of upgrade class) plaatsen. Nu niet dry in child classes
 public abstract class Tower : MonoBehaviour
 {
     [SerializeField] private int _buildCost;
     public int BuildCost => _buildCost;
-    
+
     protected float timer;
 
     private MeshRenderer[] _renderers;
@@ -62,4 +64,7 @@ public abstract class Tower : MonoBehaviour
     
     protected abstract bool CanAttack();
     protected abstract void Attack();
+
+    public abstract bool CanUpgrade();
+    public abstract void ApplyNextUpgrade();
 }

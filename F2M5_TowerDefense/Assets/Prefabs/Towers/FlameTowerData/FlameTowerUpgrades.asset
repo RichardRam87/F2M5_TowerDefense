@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1832d02e1c04fa4c94c0735093202f6, type: 3}
-  m_Name: BaseCanonTowerStats
+  m_Script: {fileID: 11500000, guid: 8a8c6724861547bbb5485fcc10967e03, type: 3}
+  m_Name: FlameTowerUpgrades
   m_EditorClassIdentifier: 
-  _data:
-    _radius: 1
-    _shootSpeed: 1
-    _damage: 1
-    _rotationSpeed: 10
-    _shootAngle: 5
+  _upgrades:
+  - _cost: 15
+    _upgradedStats:
+      _range: 1.5
+      _damagePerTick: 0.5
+      _ticksPerSecond: 3
+      _dotDuration: 2.5

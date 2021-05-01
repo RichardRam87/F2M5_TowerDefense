@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Events;
 
+namespace Towers
+{
+    
+}
 public class TowerSpawner : MonoBehaviour
 {
     [SerializeField] private Tower[] _towers;

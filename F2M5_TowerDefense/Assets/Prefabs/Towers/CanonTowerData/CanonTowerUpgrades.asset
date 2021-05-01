@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1832d02e1c04fa4c94c0735093202f6, type: 3}
-  m_Name: BaseCanonTowerStats
+  m_Script: {fileID: 11500000, guid: d4079c05cfd548bc907c1990ef3d2af4, type: 3}
+  m_Name: CanonTowerUpgrades
   m_EditorClassIdentifier: 
-  _data:
-    _radius: 1
-    _shootSpeed: 1
-    _damage: 1
-    _rotationSpeed: 10
-    _shootAngle: 5
+  _upgrades:
+  - _cost: 20
+    _upgradedStats:
+      _radius: 1.5
+      _shootSpeed: 1.5
+      _damage: 1.5
+      _rotationSpeed: 20
+      _shootAngle: 5

@@ -1,9 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CanonTowerStats", menuName = "TowerStats/CanonTowerStats", order = 1)]
-public class CanonTowerStats : ScriptableObject
+public class CanonTowerStats : TowerStats<CanonTowerData>
+{
+    
+}
+
+[Serializable]
+public class CanonTowerData
 {
     [SerializeField] private float _radius;
     public float Radius => _radius;
@@ -20,3 +27,5 @@ public class CanonTowerStats : ScriptableObject
     [SerializeField] private float _shootAngle;
     public float ShootAngle => _shootAngle;
 }
+
+

@@ -8,8 +8,11 @@ public class FlameTower : Tower
     [SerializeField] private FlameTowerStats _stats;
     [SerializeField] private LayerMask _layer;
     [SerializeField] private FlamePoint[] _flamePoints;
-
+    [SerializeField] private FlameTowerUpgrades _upgrades;
+    
     private Dictionary<FlamePoint, List<Enemy>> _validEnemyMap;
+    private FlameTowerData _towerData;
+    private int _currentUpgradeIndex = 0;
 
     protected override void Awake()
     {
@@ -21,6 +24,8 @@ public class FlameTower : Tower
         {
             _validEnemyMap.Add(flamePoint, new List<Enemy>());
         }
+
+        _towerData = _stats.Data;
     }
     
     // TODO: Clearing each enemylist is inefficient, refactor
@@ -28,7 +33,7 @@ public class FlameTower : Tower
     {
         foreach (FlamePoint flamePoint in _flamePoints)
         {
-            Bounds b = CalculateFlamePointBounds(flamePoint, _stats.Range);
+            Bounds b = CalculateFlamePointBounds(flamePoint, _towerData.Range);
             Collider[] cols = Physics.OverlapBox(b.center, b.extents, Quaternion.identity, _layer);
             
             _validEnemyMap[flamePoint].Clear();
@@ -53,7 +58,7 @@ public class FlameTower : Tower
             
             foreach (Enemy enemy in _validEnemyMap[flamePoint])
             {
-                enemy.GetHealth().AddDamageOverTimeEffect(_stats.DamagePerTick, _stats.TicksPerSecond, _stats.DotDuration);
+                enemy.GetHealth().AddDamageOverTimeEffect(_towerData.DamagePerTick, _towerData.TicksPerSecond, _towerData.DotDuration);
             }
         }
     }
@@ -65,11 +70,11 @@ public class FlameTower : Tower
 
         if (Mathf.Abs(flamePoint.Forward.x) > 0)
         {
-            areaOfEffectScale = new Vector3(_stats.Range, 1, 1);
+            areaOfEffectScale = new Vector3(_towerData.Range, 1, 1);
         }
         else if (Mathf.Abs(flamePoint.Forward.z) > 0)
         {
-            areaOfEffectScale = new Vector3(1, 1, _stats.Range);
+            areaOfEffectScale = new Vector3(1, 1, _towerData.Range);
         }
         return new Bounds(centerPosition, areaOfEffectScale);
     }
@@ -79,9 +84,23 @@ public class FlameTower : Tower
         foreach (FlamePoint flamePoint in _flamePoints)
         {
             Gizmos.color = Color.red;
-            Bounds b = CalculateFlamePointBounds(flamePoint, _stats.Range);
+            Bounds b = CalculateFlamePointBounds(flamePoint, _towerData.Range);
             
             Gizmos.DrawWireCube(b.center, b.size);
         }
+    }
+
+    // TODO: Implement
+    public override bool CanUpgrade()
+    {
+        return true;
+    }
+    
+    public override void ApplyNextUpgrade()
+    {
+        // deze naamgeving is weird...
+        _towerData = _upgrades.Upgrades[_currentUpgradeIndex].UpgradedStats;
+        _currentUpgradeIndex++;
+        print("Apply Upgrade");
     }
 }
