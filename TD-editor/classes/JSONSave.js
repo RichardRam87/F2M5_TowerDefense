@@ -1,0 +1,5 @@
+var JSONSave = class{
+    constructor(){
+        
+    }
+}

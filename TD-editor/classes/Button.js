@@ -1,0 +1,5 @@
+var Button = class{
+    constructor(){
+        
+    }
+}

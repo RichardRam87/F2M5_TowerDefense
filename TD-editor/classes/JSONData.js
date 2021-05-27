@@ -1,0 +1,5 @@
+var JSONData = class {
+    constructor(){
+        
+    }
+}

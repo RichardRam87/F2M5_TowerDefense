@@ -1,0 +1,5 @@
+var Icon = class{
+    constructor(){
+        
+    }
+}
